@@ -6,7 +6,7 @@
 using namespace std;
 
 struct BusRoute {
-    string number, busType, destination, departure, arrival;
+    string number, busType, destination, departure, pribitie;
 };
 
 int main() {
@@ -23,7 +23,7 @@ int main() {
         cout << "тип: "; cin >> routes[i].busType;
         cout << "пункт: "; cin >> routes[i].destination;
         cout << "отправление (часы:минуты): "; cin >> routes[i].departure;
-        cout << "прибытие (часы:минуты): "; cin >> routes[i].arrival;
+        cout << "прибытие (часы:минуты): "; cin >> routes[i].pribitie;
     }
 
     string target;
@@ -40,14 +40,14 @@ int main() {
 
     for (int i = 0; i < n; i++) {
         // разбиваем время прибытия рейса на часес энд минутес
-        int arrivalH = stoi(routes[i].arrival.substr(0, 2));
-        int arrivalM = stoi(routes[i].arrival.substr(3, 2));
-        int arrivalMin = arrivalH * 60 + arrivalM;
+        int pribitieH = stoi(routes[i].pribitie.substr(0, 2));
+        int pribitieM = stoi(routes[i].pribitie.substr(3, 2));
+        int pribitieMin = pribitieH * 60 + pribitieM;
 
-        if (arrivalMin < targetMin) {
+        if (pribitieMin < pribitieMin) {
             cout << routes[i].number << " | " << routes[i].busType
                 << " | " << routes[i].destination << " | "
-                << routes[i].departure << "->" << routes[i].arrival << "\n";
+                << routes[i].departure << "->" << routes[i].pribitie << "\n";
             found = true;
         }
     }
